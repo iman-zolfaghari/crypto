@@ -1,5 +1,3 @@
-package ir.izo.crypto;
-
 import java.util.Arrays;
 
 public class UTXO implements Comparable<UTXO> {

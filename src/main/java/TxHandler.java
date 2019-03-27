@@ -1,5 +1,3 @@
-package ir.izo.crypto;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -47,6 +45,7 @@ public class TxHandler {
 		for (Transaction.Input input : inputs) {
 			if (input.outputIndex >= outputs.size()) return false;
 			Transaction.Output output = outputs.get(input.outputIndex);
+			if (output != null || output.address == null) return false;
 			boolean result = Crypto.verifySignature(output.address, tx.getRawDataToSign(input.outputIndex), input.signature);
 			if (!result) return false;
 		}
